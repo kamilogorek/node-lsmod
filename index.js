@@ -27,6 +27,10 @@ module.exports = function() {
             var orig = dir;
             dir = path.dirname(orig);
 
+            if (/\@[^\/]+$/.test(dir)) {
+                dir = path.dirname(dir);
+            }
+
             if (!dir || orig === dir || seen[orig]) {
                 return;
             }
